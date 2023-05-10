@@ -42,4 +42,57 @@ User.create = async (user, result) => {
     )
 }
 
+User.findById = (id, result) => {
+    const sql = `
+        select 
+            id,
+            email,
+            name,
+            last_name,
+            image,
+            password 
+        from 
+            delivery.users 
+        where 
+            id=?`
+
+    db.query(sql, [id], (err, user) => {
+        if (err) {
+            console.log('Error: ',  err)
+            result(err, null);
+        }
+        else{
+            console.log('Usuario obtenido: ', user)
+            result(null, user);
+        }
+    });
+
+}
+
+User.findByEmail = (email, result) => {
+    const sql = `
+        select 
+            id,
+            email,
+            name,
+            last_name,
+            image,
+            password 
+        from 
+            delivery.users 
+        where 
+            email=?`
+
+    db.query(sql, [email], (err, user) => {
+        if (err) {
+            console.log('Error: ',  err)
+            result(err, null);
+        }
+        else{
+            console.log('Usuario obtenido: ', user)
+            result(null, user);
+        }
+    });
+}
+
 module.exports = User;
