@@ -3,7 +3,8 @@ const bcrypt = require('bcrypt');
 const User = { }
 
 User.create = async (user, result) => {
-    const hash = await bcrypt.hash(user.password, 10);
+    const salt = await bcrypt.genSaltSync(10);
+    const hash = await bcrypt.hashSync(user.password, salt);
     const sql = `
         insert into users(
             email,
