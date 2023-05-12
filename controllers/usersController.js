@@ -34,6 +34,7 @@ module.exports = {
                     id: user.id,
                     name: user.name,
                     last_name: user.last_name,
+                    email: user.email,
                     phone: user.phone,
                     image: user.image,
                     session_token: `JWT ${token}`

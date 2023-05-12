@@ -51,6 +51,7 @@ User.findById = (id, result) => {
             name,
             last_name,
             image,
+            phone,
             password 
         from 
             delivery.users 
@@ -78,6 +79,7 @@ User.findByEmail = (email, result) => {
             name,
             last_name,
             image,
+            phone,
             password 
         from 
             delivery.users 
